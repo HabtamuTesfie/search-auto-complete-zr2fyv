@@ -1,0 +1,23 @@
+<span>{{title}}</span>
+<div class="app-autocomplete">
+<app-autocomplete
+    [data]="countries"
+    [searchKeyword]="keyword"
+    placeHolder="Enter the company name"
+    iconName = "search"
+    (selected)='selectEvent($event)'
+    (inputChanged)='onChangeSearch($event)'
+    (inputFocused)='onFocused($event)'
+    historyIdentifier="countries"
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">
+  </app-autocomplete>
+
+	<ng-template #itemTemplate let-item>
+		<a [innerHTML]="item.name"></a>
+	</ng-template>
+
+	<ng-template #notFoundTemplate let-notFound>
+		<div [innerHTML]="notFound"></div>
+	</ng-template>
+</div>
